@@ -2,14 +2,14 @@
 
 # Update
 yum update -y
-# Install neccessary utils and libraries 
-yum install -y ncurses-devel make wget gcc bc bison flex elfutils-libelf-devel openssl-devel 
-# Get kernel tarball
+# Install utils
+yum install -y ncurses-devel make wget gcc bc bison flex elfutils-libelf-devel openssl-devel
+# Get tarball
 cd /usr/src
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.5.tar.xz
 # Untar tarball
 tar -xvf linux-5.5.tar.xz
-cd linux-5.5/
+cd /usr/src/linux-5.5/
 # Make .config file
 yes "" | sudo make oldconfig
 # Make bzImage
@@ -24,3 +24,4 @@ grub2-set-default 0
 echo "Grub update done."
 # Reboot VM
 shutdown -r now
+
