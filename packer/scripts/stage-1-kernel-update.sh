@@ -9,7 +9,7 @@ cd /usr/src
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.5.tar.xz
 # Untar tarball
 tar -xvf linux-5.5.tar.xz
-cd linux-5.5/
+cd /usr/src/linux-5.5/
 # Make .config file
 yes "" | sudo make oldconfig
 # Make bzImage
