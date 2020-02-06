@@ -3,7 +3,7 @@
 # Update
 yum update -y
 # Install utils
-yum install -y ncurses-devel make wget gcc bc bison flex elfutils-libelf-devel openssl-devel
+yum install -y ncurses-devel make wget gcc bc bison flex perl elfutils-libelf-devel openssl-devel
 # Get tarball
 cd /usr/src
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.5.tar.xz
