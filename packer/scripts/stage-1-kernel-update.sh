@@ -1,11 +1,23 @@
 #!/bin/bash
 
-# Install elrepo
-yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
-# Install new kernel
-yum --enablerepo elrepo-kernel install kernel-ml -y
-# Remove older kernels (Only for demo! Not Production!)
-rm -f /boot/*3.10*
+# Update
+yum update -y
+# Install neccessary utils and libraries 
+yum install -y ncurses-devel make wget gcc bc bison flex elfutils-libelf-devel openssl-devel 
+# Get kernel tarball
+cd /usr/src
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.5.tar.xz
+# Untar tarball
+tar -xvf linux-5.5.tar.xz
+cd linux-5.5/
+# Make .config
+yes "" | sudo make oldconfig
+# Make bzImage
+make bzIMage
+# Compile and build kernel
+make && make modules
+# Install kernel and modules
+make install && make modules_install
 # Update GRUB
 grub2-mkconfig -o /boot/grub2/grub.cfg
 grub2-set-default 0
