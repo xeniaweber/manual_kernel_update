@@ -10,10 +10,10 @@ wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.5.tar.xz
 # Untar tarball
 tar -xvf linux-5.5.tar.xz
 cd linux-5.5/
-# Make .config
+# Make .config file
 yes "" | sudo make oldconfig
 # Make bzImage
-make bzIMage
+make bzImage
 # Compile and build kernel
 make && make modules
 # Install kernel and modules
